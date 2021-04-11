@@ -1,5 +1,5 @@
 "use strict";
-//SUSKAICIUOJAME MEN.ĮMOKĄ
+//Monthly mortgage payment
 function computeLoan() {
   const amount = document.querySelector("#amount").value;
   const interestRate = document.querySelector("#interestRate").value;
@@ -7,13 +7,13 @@ function computeLoan() {
   const interest = (amount * (interestRate * 0.01)) / months;
   let payment = (amount / months + interest).toFixed(2);
 
-  //ATSKIRIAME TŪKSTANČIUS KABLELIU
+  
   payment = payment.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   document.querySelector("#payment").innerHTML = `Monthly Payment = ${payment}`;
 }
 
-//JEIGU NARŠYKLĖJE ĮJUNGTA LOKACIJA, PARODO KORDINATES ŽEMĖLAPĮ SU ARTIMIAUSIAIS PARTNERIAIS
-//DABARTINE VARTOTOJO LOKACIJA
+//Google Maps Platform Maps JavaScript API
+//Get user location
 if (navigator.geolocation) {
   navigator.geolocation.getCurrentPosition(function (p) {
     let LatLng = new google.maps.LatLng(p.coords.latitude, p.coords.longitude);
@@ -25,7 +25,7 @@ if (navigator.geolocation) {
     };
     // mapTypeId: "satellite"};
  
-    //PAVYZDINIS PARTNERIS
+    //Example of partner
     let map = new google.maps.Map(document.getElementById("map"), mapOptions);
     const image = "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
     const beachMarker = new google.maps.Marker({
@@ -46,7 +46,7 @@ if (navigator.geolocation) {
   alert('Geo Location feature is disabled in your browser.');
 }
 
-//PASPAUDUS MYGTUKĄ FIND THE NEAREST PARTNER AUTOMATIŠKAI SCROLINASI ŽEMYN NAUDOJANT jQuery(JavaScript library designed to simplify HTML DOM )
+//Auto-scroll using jQuery(JavaScript library designed to simplify HTML DOM )
 $(document).ready(function () {
   $("#scroll").click(function () {
     $(document).scrollTop($(document).height());
